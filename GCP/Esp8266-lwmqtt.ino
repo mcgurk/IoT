@@ -10,7 +10,7 @@
 // openssl ecparam -genkey -name prime256v1 -noout -out ec_private.pem
 // openssl ec -in ec_private.pem -pubout -out ec_public.pem
 // cat ec_public.pem
-// Copy-Paste key with -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY-----
+// Copy-Paste key including -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY-----
 
 #include "esp8266_mqtt.h"
 
