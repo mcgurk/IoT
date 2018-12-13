@@ -1,17 +1,17 @@
-/******************************************************************************
- * Copyright 2018 Google
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *****************************************************************************/
+// Google Cloud IoT JWT
+// Quickstart:
+// https://github.com/GoogleCloudPlatform/google-cloud-iot-arduino
+//
+// File -> Examples -> Google Cloud IoT JWT -> Esp8266-lwmqtt
+// Remember to edit ciotc_config.h
+//
+// Public key format: ES256
+// Key creation:
+// openssl ecparam -genkey -name prime256v1 -noout -out ec_private.pem
+// openssl ec -in ec_private.pem -pubout -out ec_public.pem
+// cat ec_public.pem
+//
+
 #include "esp8266_mqtt.h"
 
 #include <dht.h>
@@ -55,16 +55,9 @@ String getTempSensor() {
         break;
   }
   // DISPLAY DATA
-  /*Serial.print(DHTreadstatus);
-  Serial.print(DHT.humidity, 1);
-  Serial.print(",\t");
-  Serial.print(DHT.temperature, 1);
-  Serial.print(",\t");
-  Serial.print(stop - start);
-  Serial.println();*/
-  //unsigned long t = time(nullptr);
   //String str = DHTreadstatus + String(DHT.temperature, 1) + ",\t" + String(DHT.humidity, 1) + ",\t" + String(stop - start);
   String str = "{ \"aikaleima\" : " + String(time(nullptr)) + ", \"lampotila\" : " + String(DHT.temperature, 1) + ", \"kosteus\" : " + String(DHT.humidity, 1) + " }";
+  // { "aikaleima" : 1544730930, "lampotila" : 24.3, "kosteus" : 20.9 }
   Serial.println(str);
   //return  DHTreadstatus + String(DHT.humidity) + ",\t" + String(DHT.temperature) + ",\t" + String(stop - start);
   return str;
