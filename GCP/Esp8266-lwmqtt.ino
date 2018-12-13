@@ -11,6 +11,9 @@
 // openssl ec -in ec_private.pem -pubout -out ec_public.pem
 // cat ec_public.pem
 // Copy-Paste key including -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY-----
+// 1. Create Google IoT Core. Create device registry. Create device.
+// 2. Create Pub/Sub. Create BigQuery. Create Dataflow from Pub/Sub to BigQuery.
+// 3. Make everything visible with Data Studio or Dashboard?
 
 #include "esp8266_mqtt.h"
 
