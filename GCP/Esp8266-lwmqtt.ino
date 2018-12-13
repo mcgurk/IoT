@@ -10,7 +10,7 @@
 // openssl ecparam -genkey -name prime256v1 -noout -out ec_private.pem
 // openssl ec -in ec_private.pem -pubout -out ec_public.pem
 // cat ec_public.pem
-//
+// Copy-Paste key with -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY-----
 
 #include "esp8266_mqtt.h"
 
@@ -58,6 +58,7 @@ String getTempSensor() {
   //String str = DHTreadstatus + String(DHT.temperature, 1) + ",\t" + String(DHT.humidity, 1) + ",\t" + String(stop - start);
   String str = "{ \"aikaleima\" : " + String(time(nullptr)) + ", \"lampotila\" : " + String(DHT.temperature, 1) + ", \"kosteus\" : " + String(DHT.humidity, 1) + " }";
   // { "aikaleima" : 1544730930, "lampotila" : 24.3, "kosteus" : 20.9 }
+  // Works with BigQuery (TIMESTAMP, FLOAT, FLOAT). BigQuery needs doublequotes, singlequotes doesn't work.
   Serial.println(str);
   //return  DHTreadstatus + String(DHT.humidity) + ",\t" + String(DHT.temperature) + ",\t" + String(stop - start);
   return str;
