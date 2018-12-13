@@ -1,4 +1,10 @@
 // Google Cloud IoT JWT
+//
+// Arduino IDE libraries:
+// Google Cloud IoT Core JWT by Vladimir Korukov (11.12.2018: v1.0.6)
+// rBase64 by Abhijit Bose (11.12.2018: 1.1.0)
+// MQTT by Joel Gaehwiler (11.12.2018: 2.4.1)
+// 
 // Quickstart:
 // https://github.com/GoogleCloudPlatform/google-cloud-iot-arduino
 //
